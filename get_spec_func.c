@@ -3,6 +3,7 @@
 /**
  * get_spec_func - Selects the correct function to perform the operation
  * @spec: The specifier character
+ *
  * Return: Pointer to the function or NULL
  */
 int (*get_spec_func(char spec))(va_list)
@@ -11,6 +12,8 @@ int (*get_spec_func(char spec))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 	int i = 0;

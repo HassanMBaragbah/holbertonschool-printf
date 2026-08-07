@@ -22,8 +22,8 @@ int print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int i = 0;
 
-    if (str == NULL)
-	    str = "(null)";
+	if (str == NULL)
+		str = "(null)";
 
 	while (str[i] != '\0')
 	{
@@ -42,4 +42,42 @@ int print_percent(va_list args)
 {
 	(void)args;
 	return (write(1, "%", 1));
+}
+
+/**
+ * print_int - Prints an integer (%d and %i)
+ * @args: List of arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_int(va_list args)
+{
+	int n = va_arg(args, int);
+	int count = 0;
+	unsigned int num;
+	int div = 1;
+	char c;
+
+	if (n < 0)
+	{
+		count += write(1, "-", 1);
+		num = -n;
+	}
+	else
+	{
+		num = n;
+	}
+
+	while (num / div > 9)
+		div *= 10;
+
+	while (div != 0)
+	{
+		c = (num / div) + '0';
+		count += write(1, &c, 1);
+		num %= div;
+		div /= 10;
+	}
+
+	return (count);
 }
