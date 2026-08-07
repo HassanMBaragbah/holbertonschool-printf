@@ -15,6 +15,10 @@ int (*get_spec_func(char spec))(va_list)
 		{"d", print_int},
 		{"i", print_int},
 		{"b", print_binary},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex_low},
+		{"X", print_hex_up},
 		{NULL, NULL}
 	};
 	int i = 0;
