@@ -47,7 +47,6 @@ int print_percent(va_list args)
 /**
  * print_int - Prints an integer (%d and %i)
  * @args: List of arguments
- *
  * Return: Number of characters printed
  */
 int print_int(va_list args)
@@ -77,6 +76,37 @@ int print_int(va_list args)
 		count += write(1, &c, 1);
 		num %= div;
 		div /= 10;
+	}
+
+	return (count);
+}
+
+/**
+ * print_binary - Converts and prints an unsigned int in binary (%b)
+ * @args: List of arguments
+ * Return: Number of characters printed
+ */
+int print_binary(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int);
+	unsigned int binary[32];
+	int i = 0, count = 0;
+	char c;
+
+	if (n == 0)
+		return (write(1, "0", 1));
+
+	while (n > 0)
+	{
+		binary[i] = n % 2;
+		n /= 2;
+		i++;
+	}
+
+	for (i = i - 1; i >= 0; i--)
+	{
+		c = binary[i] + '0';
+		count += write(1, &c, 1);
 	}
 
 	return (count);
