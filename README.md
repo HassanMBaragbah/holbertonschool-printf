@@ -30,10 +30,15 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 | Specifier | Description | Example Output |
 | :---: | :--- | :--- |
-| %c | Prints a single character | _printf("%c", 'A') -> A |
-| %s | Prints a string of characters | _printf("%s", "Hello") -> Hello |
-| %% | Prints a literal percent symbol | _printf("%%") -> % |
-| %d / %i | Prints a signed decimal integer | _printf("%d", 1024) -> 1024 |
+| `%c` | Prints a single character | `_printf("%c", 'A')` -> `A` |
+| `%s` | Prints a string of characters | `_printf("%s", "Hello")` -> `Hello` |
+| `%%` | Prints a literal percent symbol | `_printf("%%")` -> `%` |
+| `%d` / `%i` | Prints a signed decimal integer | `_printf("%d", 1024)` -> `1024` |
+| `%b` | Custom specifier: Converts an unsigned integer to binary | `_printf("%b", 98)` -> `1100010` |
+| `%u` | Prints an unsigned decimal integer | `_printf("%u", 1024)` -> `1024` |
+| `%o` | Prints an unsigned octal integer | `_printf("%o", 98)` -> `142` |
+| `%x` | Prints an unsigned hexadecimal integer (lowercase) | `_printf("%x", 255)` -> `ff` |
+| `%X` | Prints an unsigned hexadecimal integer (uppercase) | `_printf("%X", 255)` -> `FF` |
 
 ---
 
